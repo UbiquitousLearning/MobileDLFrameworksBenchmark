@@ -27,8 +27,7 @@ Unfortunately, no prior work ever dives deep into the ecosystem
 of modern DL libs and provides quantitative results on their performance. 
 
 In this repo, we first build a comprehensive benchmark
-that includes 6 representative DL libs and 15 diversified DL mod-
-els
+that includes 6 representative DL libs and 15 diversified DL models.
 ##  2. <a name='Overview'></a>Overview
  We first build a comprehensive benchmark for on device DL inference, namely MDLBench. The benchmark includes
 6 popular, representative DL libs on mobile devices, i.e., `TFLite`,
@@ -77,6 +76,7 @@ We select `TFLite` and `ncnn` for their long open source history.
 See [GetFrameworkHistory](./GetFrameworkHistory) for more instructions.
 
 ##  4. <a name='Relatedwork'></a>Related work
+
 
 ##  5. <a name='Contributors'></a>Contributors
 
