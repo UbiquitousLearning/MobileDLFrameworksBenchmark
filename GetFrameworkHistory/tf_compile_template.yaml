@@ -1,0 +1,46 @@
+name: android-armv8-gpu
+'on':
+  workflow_dispatch:
+
+  watch:
+    types: [ started ]
+jobs:
+  android-aarch64-gpu:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - sha: b7db8be4f6aac1decabdc40a57c7641b4a2ecc6e
+            time: '2017-06-30'
+
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: cancel-previous-runs
+        uses: styfle/cancel-workflow-action@0.9.0
+        with:
+          access_token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+          ref: ${{ matrix.sha }}
+      - name: Setup Python
+        run: pip3 install numpy
+      - name: Prepare Bazel
+        run: '
+        wget https://x.saltedfish.fun/prepare_bazel.py
+
+        python3 prepare_bazel.py
+
+        '
+      - name: Setup Bazel
+        run: wget -O .tf_configure.bazelrc https://x.saltedfish.fun/tf_configure.bazelrc
+      - name: Build
+        run: 'bash actions_build.sh'
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          # Artifact name
+          name: ${{ matrix.sha }} # optional, default is artifact
+          # A file, directory or wildcard pattern that describes what to upload
+          path: "bazel-bin/tensorflow/lite/tools"

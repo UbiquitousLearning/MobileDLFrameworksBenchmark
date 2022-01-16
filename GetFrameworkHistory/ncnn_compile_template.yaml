@@ -1,0 +1,87 @@
+name: android-armv8-gpu
+'on':
+  workflow_dispatch:
+  watch:
+    types: [ started ]
+jobs:
+  android-aarch64-gpu:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - sha: b7db8be4f6aac1decabdc40a57c7641b4a2ecc6e
+            time: '2017-06-30'
+          - sha: 402cbeecc5f6a0323db8d112bbce6202ea33766c
+            time: '2017-07-24'
+          - sha: f3e2f8fd9e457f1a44714fefb02c9892569853ee
+            time: '2017-07-29'
+          - sha: 3c238737049deb6bb27cec0ef8df655437161807
+            time: '2017-08-07'
+          - sha: 0b508266f676b6bb729eaa96831360defe79c7d6
+            time: '2017-08-09'
+          - sha: 934f48cb5ecd17d2fdf2509d1c6f43715ad1988b
+            time: '2017-08-21'
+          - sha: 45b2e7cd571ee13e8ed9af17d3c36943600e16b3
+            time: '2017-08-25'
+          - sha: a26914d6c817033e7875e96c80ebba49eef48e65
+            time: '2017-09-04'
+          - sha: da8ff91cb06cbeb0b8fee104182d2767a3b3bf85
+            time: '2017-09-06'
+          - sha: f8dc80f756108c24ccb597181de7232cee4d310f
+            time: '2017-09-18'
+          - sha: 8a55ce42b2fc9a469a8e4c3db309b82f20e9c854
+            time: '2017-09-20'
+          - sha: 66f4d05c838162ec6099dfbf5186cc51c291f411
+            time: '2017-10-01'
+          - sha: ecc5fe345ac69207ddd73e01a322c07f446ef3c2
+            time: '2017-10-08'
+          - sha: 908a8f48d29027e52b5736a8200ad6020846af8e
+            time: '2017-10-16'
+          - sha: eea3ca577a8511662875c79e1090094aa2310d89
+            time: '2017-10-23'
+          - sha: ef624a0850d81e177565d827edb1915d15d7fb9c
+            time: '2017-10-30'
+          - sha: a3be17eb7e4d789b6c05c375b2c7aec8253c390a
+            time: '2017-11-03'
+          - sha: 790829bc62f487cccc36d7040eeb0ed55fc831d7
+            time: '2017-11-12'
+          - sha: e8248ecab0409379656ea70a734a2b6d425bdbba
+            time: '2017-11-16'
+          - sha: 32cd5f2a5c50e55a9ef1709b0d527a202fac64b2
+            time: '2017-11-23'
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: cancel-previous-runs
+        uses: styfle/cancel-workflow-action@0.9.0
+        with:
+          access_token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+          ref: ${{ matrix.sha }}
+          
+      - name: sed Benchmark
+        run: "
+      sed -i -e 's?    benchmark(?//    benchmark(?' benchmark/benchncnn.cpp
+
+       sed -i -e 's?//    benchmark(\"mobilenet\"?    benchmark(\"mobilenet\"?' benchmark/benchncnn.cpp
+
+       sed -i -e 's?//    benchmark(\"squeezenet\"?    benchmark(\"squeezenet\"?' benchmark/benchncnn.cpp
+
+        "
+
+      - name: build-android-29
+        run: |
+          mkdir build-android-29 && cd build-android-29
+          cmake -DCMAKE_TOOLCHAIN_FILE=$ANDROID_HOME/ndk-bundle/build/cmake/android.toolchain.cmake -DANDROID_ABI="arm64-v8a" -DANDROID_PLATFORM=android-29 -DNCNN_VULKAN=ON ..
+          cmake --build . -j 2
+      - name: Copy Network Param
+        run: 'cp benchmark/*.param build-android-29/benchmark/'
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          # Artifact name
+          name: ${{ matrix.sha }} # optional, default is artifact
+          # A file, directory or wildcard pattern that describes what to upload
+          path: "build-android-29/benchmark"

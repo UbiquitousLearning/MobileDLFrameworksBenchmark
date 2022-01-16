@@ -1,0 +1,24 @@
+library_name: mobilenet-v1
+target_abis: [arm64-v8a]
+model_graph_format: file
+model_data_format: file
+models:
+  mobilenet_v1:
+    platform: tensorflow
+    model_file_path: ./mobilenet_v1_1.0_224_frozen.pb
+    model_sha256_checksum: 3ed7703cccb55920e37a95ece9b2cbead4ffcd8081f2cfa9309060590aa2239c
+    subgraphs:
+      - input_tensors:
+          - input
+        input_shapes:
+          - 1,224,224,3
+        output_tensors:
+          - MobilenetV1/Predictions/Reshape_1
+        output_shapes:
+          - 1,1001
+
+    runtime: cpu+gpu
+    limit_opencl_kernel_time: 0
+    nnlib_graph_mode: 0
+    obfuscate: 0
+    winograd: 0

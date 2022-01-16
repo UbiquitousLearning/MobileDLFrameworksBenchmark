@@ -1,0 +1,19 @@
+This is For Models Conversions.
+We cannot offer all the models on Github due to the limitations. But we offered a link for some models:https://lx200916-my.sharepoint.com/:u:/g/personal/lx_lx0_xyz/EcBdD8yUZWRFsnoRQCmK5S0BIsZNl1d1HXEYnEVGdDJn3g?e=ca08BO
+and some models can be downloaded from other website.Please execute ./download_model.sh to get them.
+We also built some tools that you can convert models.
+1. download or git clone the MACE Project to ./MACE_master.
+2. download the models and unzip them to this folder.
+3. To convert MNN: run `bash MNN.sh`.
+Notice: We only built the binaries for linux_amd64 architecture.Built yourself along with `https://github.com/alibaba/MNN`.
+To convert MACE:
+1. Check that your python and tensorflow version is supported on `https://mace.readthedocs.io/en/latest/installation/env_requirement.html`. You may need virtual environment or Docker.
+2. Edit `mace_template.yml`with your model information and place it under ./mace_models
+3. Run `bash MACE.sh`.
+Notice: First Run maybe extremely slow since mace will built itself and some toolchains.
+To convert NCNN:
+Built tools due to `https://github.com/Tencent/ncnn/tree/master/tools`.
+To convert TFLite:
+Use `tflite_convert`.
+To convert SNPE:
+We cannot offer the binaries. See the SNPE documentation for details.

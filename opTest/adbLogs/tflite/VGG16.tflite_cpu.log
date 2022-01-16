@@ -1,0 +1,91 @@
+STARTING!
+Log parameter values verbosely: [0]
+Num threads: [4]
+Graph: [VGG16.tflite]
+Enable op profiling: [1]
+#threads used for CPU inference: [4]
+Loaded model VGG16.tflite
+INFO: Initialized TensorFlow Lite runtime.
+The input model file size (MB): 553.44
+Initialized session in 3.607ms.
+Running benchmark for at least 1 iterations and at least 0.5 seconds but terminate if exceeding 150 seconds.
+count=1 curr=695039
+
+Running benchmark for at least 50 iterations and at least 1 seconds but terminate if exceeding 150 seconds.
+count=50 first=578995 curr=627301 min=576063 max=646303 avg=608994 std=17523
+
+Inference timings in us: Init: 3607, First inference: 695039, Warmup (avg): 695039, Inference (avg): 608994
+Note: as the benchmark tool itself affects memory footprint, the following is only APPROXIMATE to the actual memory footprint of the model at runtime. Take the information at your discretion.
+Peak memory footprint (MB): init=3.41797 overall=776.469
+Profiling Info for Benchmark Initialization:
+============================== Run Order ==============================
+	             [node type]	          [start]	  [first]	 [avg ms]	     [%]	  [cdf%]	  [mem KB]	[times called]	[Name]
+	         AllocateTensors	            0.000	    0.487	    0.487	100.000%	100.000%	   396.000	        1	AllocateTensors/0
+
+============================== Top by Computation Time ==============================
+	             [node type]	          [start]	  [first]	 [avg ms]	     [%]	  [cdf%]	  [mem KB]	[times called]	[Name]
+	         AllocateTensors	            0.000	    0.487	    0.487	100.000%	100.000%	   396.000	        1	AllocateTensors/0
+
+Number of nodes executed: 1
+============================== Summary by node type ==============================
+	             [Node type]	  [count]	  [avg ms]	    [avg %]	    [cdf %]	  [mem KB]	[times called]
+	         AllocateTensors	        1	     0.487	   100.000%	   100.000%	   396.000	        1
+
+Timings (microseconds): count=1 curr=487
+Memory (bytes): count=0
+1 nodes observed
+
+
+
+Operator-wise Profiling Info for Regular Benchmark Runs:
+============================== Run Order ==============================
+	             [node type]	          [start]	  [first]	 [avg ms]	     [%]	  [cdf%]	  [mem KB]	[times called]	[Name]
+	                 CONV_2D	            0.014	    6.568	    6.346	  1.042%	  1.042%	     0.000	        1	[vgg16/block1_conv1/Relu;vgg16/block1_conv1/BiasAdd;vgg16/block1_conv2/Conv2D;vgg16/block1_conv1/Conv2D;vgg16/block1_conv1/BiasAdd/ReadVariableOp/resource]:0
+	                 CONV_2D	            6.361	   75.357	   74.828	 12.289%	 13.331%	     0.000	        1	[vgg16/block1_conv2/Relu;vgg16/block1_conv2/BiasAdd;vgg16/block1_conv2/Conv2D;vgg16/block1_conv2/BiasAdd/ReadVariableOp/resource]:1
+	             MAX_POOL_2D	           81.190	    4.188	    4.293	  0.705%	 14.036%	     0.000	        1	[vgg16/block1_pool/MaxPool]:2
+	                 CONV_2D	           85.485	   32.432	   33.476	  5.498%	 19.533%	     0.000	        1	[vgg16/block2_conv1/Relu;vgg16/block2_conv1/BiasAdd;vgg16/block2_conv2/Conv2D;vgg16/block2_conv1/Conv2D;vgg16/block2_conv1/BiasAdd/ReadVariableOp/resource]:3
+	                 CONV_2D	          118.962	   64.230	   68.357	 11.226%	 30.759%	     0.000	        1	[vgg16/block2_conv2/Relu;vgg16/block2_conv2/BiasAdd;vgg16/block2_conv2/Conv2D;vgg16/block2_conv2/BiasAdd/ReadVariableOp/resource]:4
+	             MAX_POOL_2D	          187.320	    1.844	    1.918	  0.315%	 31.074%	     0.000	        1	[vgg16/block2_pool/MaxPool]:5
+	                 CONV_2D	          189.239	   29.671	   31.891	  5.237%	 36.311%	     0.000	        1	[vgg16/block3_conv1/Relu;vgg16/block3_conv1/BiasAdd;vgg16/block3_conv3/Conv2D;vgg16/block3_conv1/Conv2D;vgg16/block3_conv1/BiasAdd/ReadVariableOp/resource]:6
+	                 CONV_2D	          221.132	   60.354	   65.818	 10.809%	 47.120%	     0.000	        1	[vgg16/block3_conv2/Relu;vgg16/block3_conv2/BiasAdd;vgg16/block3_conv3/Conv2D;vgg16/block3_conv2/Conv2D;vgg16/block3_conv2/BiasAdd/ReadVariableOp/resource]:7
+	                 CONV_2D	          286.951	   60.219	   66.251	 10.880%	 58.000%	     0.000	        1	[vgg16/block3_conv3/Relu;vgg16/block3_conv3/BiasAdd;vgg16/block3_conv3/Conv2D;vgg16/block3_conv3/BiasAdd/ReadVariableOp/resource]:8
+	             MAX_POOL_2D	          353.203	    0.815	    0.919	  0.151%	 58.151%	     0.000	        1	[vgg16/block3_pool/MaxPool]:9
+	                 CONV_2D	          354.123	   29.193	   31.656	  5.199%	 63.350%	     0.000	        1	[vgg16/block4_conv1/Relu;vgg16/block4_conv1/BiasAdd;vgg16/block5_conv3/Conv2D;vgg16/block4_conv1/Conv2D;vgg16/block4_conv1/BiasAdd/ReadVariableOp/resource]:10
+	                 CONV_2D	          385.781	   64.451	   67.711	 11.120%	 74.470%	     0.000	        1	[vgg16/block4_conv2/Relu;vgg16/block4_conv2/BiasAdd;vgg16/block5_conv3/Conv2D;vgg16/block4_conv2/Conv2D;vgg16/block4_conv2/BiasAdd/ReadVariableOp/resource]:11
+	                 CONV_2D	          453.493	   64.534	   67.766	 11.129%	 85.599%	     0.000	        1	[vgg16/block4_conv3/Relu;vgg16/block4_conv3/BiasAdd;vgg16/block5_conv3/Conv2D;vgg16/block4_conv3/Conv2D;vgg16/block4_conv3/BiasAdd/ReadVariableOp/resource]:12
+	             MAX_POOL_2D	          521.260	    0.426	    0.440	  0.072%	 85.671%	     0.000	        1	[vgg16/block4_pool/MaxPool]:13
+	                 CONV_2D	          521.700	   17.231	   18.144	  2.980%	 88.650%	     0.000	        1	[vgg16/block5_conv1/Relu;vgg16/block5_conv1/BiasAdd;vgg16/block5_conv3/Conv2D;vgg16/block5_conv1/Conv2D;vgg16/block5_conv1/BiasAdd/ReadVariableOp/resource]:14
+	                 CONV_2D	          539.846	   17.360	   18.006	  2.957%	 91.607%	     0.000	        1	[vgg16/block5_conv2/Relu;vgg16/block5_conv2/BiasAdd;vgg16/block5_conv3/Conv2D;vgg16/block5_conv2/Conv2D;vgg16/block5_conv2/BiasAdd/ReadVariableOp/resource]:15
+	                 CONV_2D	          557.853	   17.369	   18.119	  2.976%	 94.583%	     0.000	        1	[vgg16/block5_conv3/Relu;vgg16/block5_conv3/BiasAdd;vgg16/block5_conv3/Conv2D;vgg16/block5_conv3/BiasAdd/ReadVariableOp/resource]:16
+	             MAX_POOL_2D	          575.973	    0.110	    0.114	  0.019%	 94.602%	     0.000	        1	[vgg16/block5_pool/MaxPool]:17
+	                 RESHAPE	          576.088	    0.009	    0.009	  0.002%	 94.603%	     0.000	        1	[vgg16/flatten/Reshape]:18
+	         FULLY_CONNECTED	          576.098	   25.221	   25.517	  4.191%	 98.794%	     0.000	        1	[vgg16/fc1/MatMul;vgg16/fc1/Relu;vgg16/fc1/BiasAdd]:19
+	         FULLY_CONNECTED	          601.617	    5.888	    5.892	  0.968%	 99.761%	     0.000	        1	[vgg16/fc2/MatMul;vgg16/fc2/Relu;vgg16/fc2/BiasAdd]:20
+	         FULLY_CONNECTED	          607.510	    1.423	    1.437	  0.236%	 99.997%	     0.000	        1	[vgg16/predictions/MatMul;vgg16/predictions/BiasAdd]:21
+	                 SOFTMAX	          608.948	    0.017	    0.016	  0.003%	100.000%	     0.000	        1	[Identity]:22
+
+============================== Top by Computation Time ==============================
+	             [node type]	          [start]	  [first]	 [avg ms]	     [%]	  [cdf%]	  [mem KB]	[times called]	[Name]
+	                 CONV_2D	            6.361	   75.357	   74.828	 12.289%	 12.289%	     0.000	        1	[vgg16/block1_conv2/Relu;vgg16/block1_conv2/BiasAdd;vgg16/block1_conv2/Conv2D;vgg16/block1_conv2/BiasAdd/ReadVariableOp/resource]:1
+	                 CONV_2D	          118.962	   64.230	   68.357	 11.226%	 23.514%	     0.000	        1	[vgg16/block2_conv2/Relu;vgg16/block2_conv2/BiasAdd;vgg16/block2_conv2/Conv2D;vgg16/block2_conv2/BiasAdd/ReadVariableOp/resource]:4
+	                 CONV_2D	          453.493	   64.534	   67.766	 11.129%	 34.643%	     0.000	        1	[vgg16/block4_conv3/Relu;vgg16/block4_conv3/BiasAdd;vgg16/block5_conv3/Conv2D;vgg16/block4_conv3/Conv2D;vgg16/block4_conv3/BiasAdd/ReadVariableOp/resource]:12
+	                 CONV_2D	          385.781	   64.451	   67.711	 11.120%	 45.763%	     0.000	        1	[vgg16/block4_conv2/Relu;vgg16/block4_conv2/BiasAdd;vgg16/block5_conv3/Conv2D;vgg16/block4_conv2/Conv2D;vgg16/block4_conv2/BiasAdd/ReadVariableOp/resource]:11
+	                 CONV_2D	          286.951	   60.219	   66.251	 10.880%	 56.643%	     0.000	        1	[vgg16/block3_conv3/Relu;vgg16/block3_conv3/BiasAdd;vgg16/block3_conv3/Conv2D;vgg16/block3_conv3/BiasAdd/ReadVariableOp/resource]:8
+	                 CONV_2D	          221.132	   60.354	   65.818	 10.809%	 67.452%	     0.000	        1	[vgg16/block3_conv2/Relu;vgg16/block3_conv2/BiasAdd;vgg16/block3_conv3/Conv2D;vgg16/block3_conv2/Conv2D;vgg16/block3_conv2/BiasAdd/ReadVariableOp/resource]:7
+	                 CONV_2D	           85.485	   32.432	   33.476	  5.498%	 72.949%	     0.000	        1	[vgg16/block2_conv1/Relu;vgg16/block2_conv1/BiasAdd;vgg16/block2_conv2/Conv2D;vgg16/block2_conv1/Conv2D;vgg16/block2_conv1/BiasAdd/ReadVariableOp/resource]:3
+	                 CONV_2D	          189.239	   29.671	   31.891	  5.237%	 78.187%	     0.000	        1	[vgg16/block3_conv1/Relu;vgg16/block3_conv1/BiasAdd;vgg16/block3_conv3/Conv2D;vgg16/block3_conv1/Conv2D;vgg16/block3_conv1/BiasAdd/ReadVariableOp/resource]:6
+	                 CONV_2D	          354.123	   29.193	   31.656	  5.199%	 83.385%	     0.000	        1	[vgg16/block4_conv1/Relu;vgg16/block4_conv1/BiasAdd;vgg16/block5_conv3/Conv2D;vgg16/block4_conv1/Conv2D;vgg16/block4_conv1/BiasAdd/ReadVariableOp/resource]:10
+	         FULLY_CONNECTED	          576.098	   25.221	   25.517	  4.191%	 87.576%	     0.000	        1	[vgg16/fc1/MatMul;vgg16/fc1/Relu;vgg16/fc1/BiasAdd]:19
+
+Number of nodes executed: 23
+============================== Summary by node type ==============================
+	             [Node type]	  [count]	  [avg ms]	    [avg %]	    [cdf %]	  [mem KB]	[times called]
+	                 CONV_2D	       13	   568.361	    93.340%	    93.340%	     0.000	       13
+	         FULLY_CONNECTED	        3	    32.845	     5.394%	    98.734%	     0.000	        3
+	             MAX_POOL_2D	        5	     7.683	     1.262%	    99.996%	     0.000	        5
+	                 SOFTMAX	        1	     0.015	     0.002%	    99.999%	     0.000	        1
+	                 RESHAPE	        1	     0.009	     0.001%	   100.000%	     0.000	        1
+
+Timings (microseconds): count=50 first=578910 curr=627228 min=575999 max=646236 avg=608925 std=17523
+Memory (bytes): count=0
+23 nodes observed

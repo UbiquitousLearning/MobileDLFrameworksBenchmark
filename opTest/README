@@ -1,0 +1,3 @@
+This is For DLFramework Per OP Benchmark.
+Plug in device and run the [name of the DLFramework].py to start the benchmark or run the main.py to start all benchmark. Output will be generated under ./adbLogs.
+Notice: Some models should be downloaded first.Check ./tflite or ../Convertor.

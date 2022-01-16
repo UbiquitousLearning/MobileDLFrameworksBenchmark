@@ -1,0 +1,10 @@
+Those code is to get weekly commits of the certain repository and then build artifacts.We take `ncnn` and `TensorFlowLite` for research.
+1.Before using those code, a Github API Token is required to access /commits API endpoint.
+2.Fill the Github API Token into the `token` variable.
+3.Customize the `OWNER` and `REPO` variables to your target repository and change the `start_date` in `commits.py`. Run `commits.py` to JSON files contain the sha and time of the last commit every week.
+4.Customize the `yaml template` in `json_to_yaml.py` then run `json_to_yaml.py`. We provide templates for `ncnn` and `TensorFlowLite`.
+5.We use cluster services to build artifacts in bulk so those code only generate yaml configuration files.
+You can also use public services like `Github Actions` or `AWS CodeBuild` to build those artifacts.
+And we also provide a `download_artifacts.py` compatible with `Github Actions` for your convenience.
+6.Customize running commands in `adbTest.py`, defaulting to `ncnn` benchmark.
+7.Connect your Android device by ADB and run `adbTest.py` to test the build artifacts and gain statistics.

@@ -1,0 +1,39 @@
+MNN benchmark
+Forward type: **CPU** thread=4** precision=2** sparsity=0** sparseBlockOC=1
+--------> Benchmarking... loop = 1, warmup = 5
+[ - ] MobileNetV2_224.mnn       warmup =   51.789 ms
+ [ - ] MobileNetV2_224.mnn       warmup =    9.182 ms
+ [ - ] MobileNetV2_224.mnn       warmup =    8.156 ms
+ [ - ] MobileNetV2_224.mnn       warmup =    9.504 ms
+ [ - ] MobileNetV2_224.mnn       warmup =    7.817 ms
+ [ - ] MobileNetV2_224.mnn         max =    9.299 ms  min =    9.299 ms  avg =    9.299 ms
+[ - ] inception-v3.mnn          warmup =   87.216 ms
+ [ - ] inception-v3.mnn          warmup =   96.846 ms
+ [ - ] inception-v3.mnn          warmup =   99.493 ms
+ [ - ] inception-v3.mnn          warmup =   84.077 ms
+ [ - ] inception-v3.mnn          warmup =   86.586 ms
+ [ - ] inception-v3.mnn            max =   92.474 ms  min =   92.474 ms  avg =   92.474 ms
+[ - ] mobilenet-v1-1.0.mnn      warmup =   29.622 ms
+ [ - ] mobilenet-v1-1.0.mnn      warmup =   12.378 ms
+ [ - ] mobilenet-v1-1.0.mnn      warmup =   12.333 ms
+ [ - ] mobilenet-v1-1.0.mnn      warmup =   12.454 ms
+ [ - ] mobilenet-v1-1.0.mnn      warmup =   12.393 ms
+ [ - ] mobilenet-v1-1.0.mnn        max =   12.421 ms  min =   12.421 ms  avg =   12.421 ms
+[ - ] mobilenet_v2.mnn          warmup =   15.103 ms
+ [ - ] mobilenet_v2.mnn          warmup =   10.879 ms
+ [ - ] mobilenet_v2.mnn          warmup =   12.066 ms
+ [ - ] mobilenet_v2.mnn          warmup =   11.854 ms
+ [ - ] mobilenet_v2.mnn          warmup =   10.979 ms
+ [ - ] mobilenet_v2.mnn            max =   10.766 ms  min =   10.766 ms  avg =   10.766 ms
+[ - ] resnet50.mnn              warmup =    0.073 ms
+ [ - ] resnet50.mnn              warmup =    0.010 ms
+ [ - ] resnet50.mnn              warmup =    0.004 ms
+ [ - ] resnet50.mnn              warmup =    0.003 ms
+ [ - ] resnet50.mnn              warmup =    0.002 ms
+ [ - ] resnet50.mnn                max =    0.002 ms  min =    0.002 ms  avg =    0.002 ms
+[ - ] vgg16.mnn                 warmup =  157.939 ms
+ [ - ] vgg16.mnn                 warmup =  152.097 ms
+ [ - ] vgg16.mnn                 warmup =  152.458 ms
+ [ - ] vgg16.mnn                 warmup =  153.141 ms
+ [ - ] vgg16.mnn                 warmup =  149.320 ms
+ [ - ] vgg16.mnn                   max =  150.902 ms  min =  150.902 ms  avg =  150.902 ms
