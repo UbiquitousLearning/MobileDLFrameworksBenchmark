@@ -76,7 +76,7 @@ We select `TFLite` and `ncnn` for their long open source history.
 See [GetFrameworkHistory](./GetFrameworkHistory) for more instructions.
 
 ##  4. <a name='Relatedwork'></a>Related work
-
+[MNN](https://github.com/alibaba/MNN) </br>
 
 ##  5. <a name='Contributors'></a>Contributors
 
