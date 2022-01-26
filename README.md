@@ -76,11 +76,14 @@ We select `TFLite` and `ncnn` for their long open source history.
 See [GetFrameworkHistory](./GetFrameworkHistory) for more instructions.
 
 ##  4. <a name='Relatedwork'></a>Related work
-[MNN](https://github.com/alibaba/MNN) </br>
-[SNPE](https://developer.qualcomm.com/sites/default/files/docs/snpe/overview.html) </br>
-[ncnn](https://github.com/Tencent/ncnn) </br>
-[mace](https://github.com/XiaoMi/mace) </br>
-[PyTorch Mobile](https://pytorch.org/mobile/home/) </br>
-[tflite](https://www.tensorflow.org/lite/guide) </br>
+[MNN](https://github.com/alibaba/MNN)
+[SNPE](https://developer.qualcomm.com/sites/default/files/docs/snpe/overview.html) 
+[ncnn](https://github.com/Tencent/ncnn)
+[mace](https://github.com/XiaoMi/mace) 
+[PyTorch Mobile](https://pytorch.org/mobile/home/) 
+[tflite](https://www.tensorflow.org/lite/guide)
 ##  5. <a name='Contributors'></a>Contributors
+[@xumengwei](https://github.com/xumengwei)
+[@zhangqiyang](https://github.com/qiyangzhang0329)
+[@lixiang](https://github.com/lx200916)
 
