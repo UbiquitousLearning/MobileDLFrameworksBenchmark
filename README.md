@@ -77,6 +77,10 @@ See [GetFrameworkHistory](./GetFrameworkHistory) for more instructions.
 
 ##  4. <a name='Relatedwork'></a>Related work
 [MNN](https://github.com/alibaba/MNN) </br>
-
+[SNPE](https://developer.qualcomm.com/sites/default/files/docs/snpe/overview.html) </br>
+[ncnn](https://github.com/Tencent/ncnn) </br>
+[mace](https://github.com/XiaoMi/mace) </br>
+[PyTorch Mobile](https://pytorch.org/mobile/home/) </br>
+[tflite](https://www.tensorflow.org/lite/guide) </br>
 ##  5. <a name='Contributors'></a>Contributors
 
