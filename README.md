@@ -1,21 +1,18 @@
-
-
-
 # Mobile-DL-benchmark
 
 A Comprehensive Benchmark of Deep Learning Libraries on Mobile Devices.
 
-> This Framework based on TFLite,ncnn,Mace,MNN,PytorchMobile,SNPE and other libs. 
-## Table of Contents
+> This framework is  an implementation of our paper( [A Comprehensive Benchmark of Deep Learning Libraries on Mobile Devices](#TBD) ),and it is based on TFLite,ncnn,Mace,MNN,PytorchMobile,SNPE and other libs. 
+
+##  <a name='TableofContents'></a>Table of Contents
 *  [Background](#Background)
 *  [Overview](#Overview)
 *  [Framework Composition](#FrameworkComposition)
-	*  [DL Libraries Prebuilt Binaries](#DLLibrariesPrebuiltBinaries)
-	*  [Model Convertors](#ModelConvertors)
-	*  [DL Libs Benchmark](#DLLibsBenchmark)
-	*  [DL Libs Longitudinal Analysis](#DLLibsLongitudinalAnalysis)
-*  [Related work](#Relatedwork)
-*  [Contributors](#Contributors)
+	* [DL Libraries Prebuilt Binaries](#DLLibrariesPrebuiltBinaries)
+	* [Model Convertors](#ModelConvertors)
+	* [DL Libs Benchmark](#DLLibsBenchmark)
+	* [DL Libs Longitudinal Analysis](#DLLibsLongitudinalAnalysis)
+* [Milestore](#Milestore)
 
 ##  1. <a name='Background'></a>Background
 
@@ -23,8 +20,7 @@ A Comprehensive Benchmark of Deep Learning Libraries on Mobile Devices.
 
 Deploying deep learning (DL) on mobile devices has been a notable trend in recent years. To support fast inference of on-device
 DL, DL libraries play a critical role as algorithms and hardware do.
-Unfortunately, no prior work ever dives deep into the ecosystem
-of modern DL libs and provides quantitative results on their performance. 
+
 
 In this repo, we first build a comprehensive benchmark
 that includes 6 representative DL libs and 15 diversified DL models.
@@ -75,15 +71,6 @@ We select `TFLite` and `ncnn` for their long open source history.
 
 See [GetFrameworkHistory](./GetFrameworkHistory) for more instructions.
 
-##  4. <a name='Relatedwork'></a>Related work
-[MNN](https://github.com/alibaba/MNN)
-[SNPE](https://developer.qualcomm.com/sites/default/files/docs/snpe/overview.html) 
-[ncnn](https://github.com/Tencent/ncnn)
-[mace](https://github.com/XiaoMi/mace) 
-[PyTorch Mobile](https://pytorch.org/mobile/home/) 
-[tflite](https://www.tensorflow.org/lite/guide)
-##  5. <a name='Contributors'></a>Contributors
-[@xumengwei](https://github.com/xumengwei)
-[@zhangqiyang](https://github.com/qiyangzhang0329)
-[@lixiang](https://github.com/lx200916)
-
+##  4. <a name='Milestore'></a>Milestore
+1. Support more DL libs, like TNN.
+2. Support more DL models(NLP/Transformer etc.) running on different libs.
